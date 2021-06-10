@@ -1,11 +1,11 @@
-todbotさんによるCircuitPythonのトリック集です。大変有用な内容なので、レポジトリをfolkさせていただき、日本語化しました。
+todbotさんによるCircuitPythonのトリック集です。大変有用な内容なのでリポジトリをforkさせていただき日本語化しました。
 
-元のレポジトリはこちら
+元のリポジトリはこちら
 https://github.com/todbot/circuitpython-tricks
 
 # CircuitPythonのトリック集
 
-todbotさんがCircuitPythonのプログラミングの中で見つけたコツとトリックを集めたものです。
+todbotさんがCircuitPythonのプログラミングの中で見つけられたコツとトリックを集めたものです。
 
 ## 目次
 * [入力](#入力)
