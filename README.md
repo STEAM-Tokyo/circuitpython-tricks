@@ -63,7 +63,7 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
    * [グローバル変数の一覧を表示](#グローバル変数の一覧を表示)
 * [ホスト側のタスク](#ホスト側のタスク)
    * [CircuitPythonのライブラリをインストールする](#CircuitPythonのライブラリをインストールする)
-      * [circupで始まる名前のライブラリをインストールする](#circupで始まる名前のライブラリをインストールする)
+      * [circupでライブラリをインストールする](#circupでライブラリをインストールする)
       * [cpコマンドでライブラリをコピーする](#cpコマンドでライブラリをコピーする)
 
 ## 入力
@@ -72,9 +72,9 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
   ```py
   import board
   from digitalio import DigitalInOut, Pull
-  button = DigitalInOut(board.D3) # defaults to input
-  button.pull = Pull.UP # turn on internal pull-up resistor
-  print(button.value)  # False == pressed
+  button = DigitalInOut(board.D3) # デフォルトでは入力
+  button.pull = Pull.UP # 内部のプルアップ抵抗を有効化する
+  print(button.value)  # False == ボタンが押された
   ```
 
 ### ポテンショメータを読み取る 
@@ -82,8 +82,8 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
   import board
   import analogio
   potknob = analogio.AnalogIn(board.A1)
-  position = potknob.value  # ranges from 0-65535
-  pos = potknob.value // 256  # make 0-255 range
+  position = potknob.value  # 0-65535の範囲の値
+  pos = potknob.value // 256  # 0-255の範囲にする
   ```
 
 ### 静電容量タッチピンを読み取る
@@ -91,7 +91,7 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
   import touchio
   import board
   touch_pin = touchio.TouchIn(board.GP6)
-  # on Pico / RP2040, need 1M pull-down on each input
+  # Raspberry Pi Pico / RP2040の場合、1MΩのプルダウン抵抗が各入力に必要
   if touch_pin.value: 
     print("touched!")
   ```
@@ -100,8 +100,8 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
   ```py
   import board
   import rotaryio
-  encoder = rotaryio.IncrementalEncoder(board.GP0, board.GP1) # must be consecutive on Pico
-  print(encoder.position)  # starts at zero, goes neg or pos
+  encoder = rotaryio.IncrementalEncoder(board.GP0, board.GP1) # Picoの場合、GP0、GP1のように連続したピンである必要がある
+  print(encoder.position)  # ゼロからスタートして、マイナスまたはプラスの値が表示される
   ```
 
 ### ピンやボタンのデバウンス 
@@ -126,10 +126,10 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
   from digitalio import DigitalInOut, Pull
   from adafruit_debouncer import Debouncer
   pins = (board.GP0, board.GP1, board.GP2, board.GP3, board.GP4)
-  buttons = []   # will hold list of Debouncer objects
+  buttons = []   # デバウンスしたいオブジェクトのリストが格納される
   for pin in pins:
     tmp_pin = DigitalInOut(pin) # defaults to input
-    tmp_pin.pull = Pull.UP # turn on internal pull-up resistor
+    tmp_pin.pull = Pull.UP # 内部のプルアップ抵抗を有効化する
     buttons.append( Debouncer(tmp_pin) )
   while True:
     for i in range(len(buttons)):
@@ -156,8 +156,8 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
   ```py
   import board
   import analogio
-  dac = analogio.AnalogOut(board.A0)  # on Trinket M0 & QT Py
-  dac.value = 32768   # mid-point of 0-65535
+  dac = analogio.AnalogOut(board.A0)  # Trinket M0とQT Pyの場合
+  dac.value = 32768   # 0-65535の範囲の中央の値
   ```
 
 ### PWMピンにアナログ値を出力
@@ -165,7 +165,7 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
   import board
   import pwmio
   out1 = pwmio.PWMOut(board.MOSI, frequency=25000, duty_cycle=0)
-  out1.duty_cycle = 32768  # mid-point 0-65535 = 50 % duty-cycle
+  out1.duty_cycle = 32768  # 0-65535の範囲の中央の値 = 50 % デューティサイクル
   ```
 
 ### Neopixelを制御
@@ -173,7 +173,7 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
   import neopixel
   led = neopixel.NeoPixel(board.NEOPIXEL, 1, brightness=0.2)
   led[0] = 0xff00ff
-  led[0] = (255,0,255)  # equivalent
+  led[0] = (255,0,255)  # 0xff00ffを指定したのと同じ
 
   ```
 
@@ -205,12 +205,12 @@ import board, neopixel
 num_leds = 16
 leds = neopixel.NeoPixel(board.D2, num_leds, brightness=0.4, auto_write=False )
 delta_hue = 256//num_leds
-speed = 10  # higher numbers = faster rainbow spinning
+speed = 10  # 数字が大きい = 色の変化が速い
 i=0
 while True:
   for l in range(len(leds)):
     leds[l] = neopixel._pixelbuf.colorwheel( int(i*speed + l * delta_hue) % 255  )
-  leds.show()  # only write to LEDs after updating them all
+  leds.show()  # 全部のLEDの値を変更したあとに更新をかける
   i = (i+1) % 255
   time.sleep(0.05)
 ```
@@ -222,13 +222,13 @@ import board, neopixel
 num_leds = 16
 leds = neopixel.NeoPixel(board.D2, num_leds, brightness=0.4, auto_write=False )
 my_color = (55,200,230)
-dim_by = 20  # dim amount, higher = shorter tails
+dim_by = 20  # 数字が大きい = 流れ星の尾が短い
 pos = 0
 while True:
   leds[pos] = my_color
   leds[0:] = [[max(i-dim_by,0) for i in l] for l in leds] # dim all by (dim_by,dim_by,dim_by)
-  pos = (pos+1) % num_leds  # move to next position
-  leds.show()  # only write to LEDs after updating them all
+  pos = (pos+1) % num_leds  # 次の位置に移動する
+  leds.show()  # 全部のLEDの値を変更したあとに更新をかける
   time.sleep(0.05)
 ```
 
@@ -269,14 +269,14 @@ while True:
 ### USBシリアルに表示
   ```py
   print("hello there")  # prints a newline
-  print("waiting...", end='')   # does not print newline
+  print("waiting...", end='')   # end=''とすることで改行しなくなる
   ```
 
 ### USBシリアルから入力を受け付ける（ブロッキング）
   ```py
   while True:
     print("Type something: ", end='')
-    my_str = input()  # type and press ENTER or RETURN
+    my_str = input()  # キー入力をしてENTERを押す
     print("You entered: ", my_str)
   ```
 
@@ -290,7 +290,7 @@ while True:
     if supervisor.runtime.serial_bytes_available:
       my_str = input()
       print("You entered:", my_str)
-    if time.monotonic() - last_time > 1:  # every second, print
+    if time.monotonic() - last_time > 1:  # 1秒毎に表示
       last_time = time.monotonic()
       print(int(last_time),"waiting...")
   ```
@@ -314,7 +314,7 @@ while True:
   ```
 
 ### f文字列でテキストをフォーマットする
-（QTPy M0のような小さなCircuitPythonでは機能しない）
+（QTPy M0のような小さなCircuitPythonでは機能しません）
 
 ```py
   name = "John"
@@ -344,18 +344,18 @@ while True:
 
 ### 値のマッピング
   ```py
-  # simple range mapper, like Arduino map()
+  # Arduino map()のようなシンプルなマッピング
   def map_range(s, a, b):
       (a1, a2), (b1, b2) = a, b
       return  b1 + ((s - a1) * (b2 - b1) / (a2 - a1))
-  # map 0-0123 value to 0.0-1.0 value
+  # 0-0123の範囲の値を0.0-1.0の範囲にマッピングする
   out = map_range( in, (0,1023), (0.0,1.0) )
   ```
 
 ### 時間の計測
   ```py
   import time
-  start_time = time.monotonic() # fraction seconds uptime
+  start_time = time.monotonic() # 電源投入時
   do_something()
   elapsed_time = time.monotonic() - start_time
   print("do_something took %f seconds" % elapsed_time)
@@ -363,7 +363,7 @@ while True:
 
 ### Ctrl-Cを押してもコードが停止しないようにする
 
-メインループ内に `try`/`except KeyboardInterrupt` を記述してCtrl-Cを押したことを検出する
+メインループ内に `try`/`except KeyboardInterrupt` を記述してCtrl-Cを押したことを検出します。
 
 ```py
 while True:
@@ -374,7 +374,7 @@ while True:
     print("Nice try, human! Not quitting.")
 ```
 
-Ctrl-Cを押して、優雅に(LEDを消して、終了メッセージを表示してから)シャットダウンすることもできる
+Ctrl-Cを押して、優雅に(LEDを消して、終了メッセージを表示してから)シャットダウンすることもできます。
 
 ```py
 import time, random
@@ -394,7 +394,7 @@ while True:
 
 ### Raspberry Pi Picoをセーフモードで起動できるようにする
 
-他のRP2040搭載ボード（QTPy RP2040等）でも機能する
+他のRP2040搭載ボード（QTPy RP2040等）でも機能します。
 
   ```py
   # このコードをboot.pyとしてRaspberry Pi PicoのCIRCUITPY driveに保存しておく
@@ -474,11 +474,8 @@ while True:
 ```
 
 ### `secrets.py`ってなに？
-It's a config file that lives next to your `code.py` and is used
-(invisibly) by many Adafruit WiFi libraries.
-You can use it too (as in the examples above) without those libraries
-
-It looks like this for basic WiFi connectivity:
+AdafruitのWiFiライブラリで使用するファイルです。
+基本的なWiFi接続を行うような場合に使います。
 ```py
 # secrets.py
 secrets = {
@@ -632,9 +629,9 @@ if 'c' in my_globals:
 
 以下はMacOS / Linuxの例です。  Windowsでも類似のコマンドを使用します。
 
-#### `circup`で始まる名前のライブラリをインストールする
+#### `circup`でライブラリをインストールする
 
-`circup` can be used to easily install and update modules
+`circup` を使うと簡単にライブラリのインストールとアップデートができます
 
 ```sh
 $ pip3 install --user circup
@@ -642,8 +639,8 @@ $ circup install adafruit_midi
 $ circup update   # updates all modules
 ```
 
-Freshly update all modules to latest version (e.g. when going from CP 6 -> CP 7)
-(This is needed because `circup update` doesn't actually seem to work reliably)
+すべてのモジュールを最新版に更新 (例えばCircuitPython 6から7にアップデートする場合など)
+(これが必要なのは、`circup update` が実際には確実に動作していないようだからです)
 
 ```sh
 circup freeze > mymodules.txt
@@ -652,7 +649,7 @@ circup install -r mymodules.txt
 ```
 
 
-And updating circup when a new version of CircuitPython comes out:
+また、CircuitPythonの新しいバージョンが出たらcircupを更新します。
 ```sh
 $ pip3 install --upgrade circup
 ```
@@ -660,15 +657,15 @@ $ pip3 install --upgrade circup
 
 #### `cp`コマンドでライブラリをコピーする
 
-To install libraries by hand from the
+ライブラリを手動でインストールするには
 [CircuitPython Library Bundle](https://circuitpython.org/libraries)
-or from the [CircuitPython Community Bundle](https://github.com/adafruit/CircuitPython_Community_Bundle/releases) (which circup doesn't support), get the bundle, unzip it and then use `cp -rX`.
+または [CircuitPython Community Bundle](https://github.com/adafruit/CircuitPython_Community_Bundle/releases) (which circup doesn't support), からバンドルをダウンロードして解凍したあと`cp -rX`を実行してください。
 
 ```sh
 cp -rX bundle_folder/lib/adafruit_midi /Volumes/CIRCUITPY/lib
 ```
 
-**Note:** on limited-memory boards like Trinkey, Trinket, QTPy, you must use the `-X` option on MacOS
-to save space. You may also need to omit unused parts of some libraries (e.g. `adafruit_midi/system_exclusive` is not needed if just sending MIDI notes)
+**注意：** Trinkey, Trinket, QTPyのような限られたメモリのボードでは、MacOSの`-X`オプションを使用してスペースを節約する必要があります。
+また、一部のライブラリの未使用部分を削除する必要があるかもしれません（例：MIDIノートを送信するだけなら、`adafruit_midi/system_exclusive`は必要ありません）。
 
 
