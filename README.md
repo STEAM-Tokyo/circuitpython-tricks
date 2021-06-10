@@ -27,7 +27,7 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
 * [USB](#usb)
    * [USBが接続されているかを検出](#USBが接続されているかを検出)
    * [CIRCUITPYのディスクサイズと空き容量を取得](#CIRCUITPYのディスクサイズと空き容量を取得)
-   * [コードからUF2 bootloaderをリセット](#コードからUF2 bootloaderをリセット)
+   * [コードからUF2 bootloaderをリセット](#コードからUF2-bootloaderをリセット)
 * [USB Serial](#usb-serial)
    * [Print to USB Serial](#print-to-usb-serial)
    * [Read user input from USB Serial, blocking](#read-user-input-from-usb-serial-blocking)
