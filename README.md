@@ -44,9 +44,9 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
    * [Raspberry Pi Picoをセーフモードで起動できるようにする](#Raspberry-Pi-Picoをセーフモードで起動できるようにする)
 * [ネットワーク](#ネットワーク)
    * [WiFiをスキャンして信号強度順にSSIDを表示 (ESP32-S2)](#WiFiをスキャンして信号強度順にSSIDを表示-ESP32-S2)
-   * [Ping an IP address (ESP32-S2)](#ping-an-ip-address-esp32-s2)
-   * [Fetch a JSON file (ESP32-S2)](#fetch-a-json-file-esp32-s2)
-   * [What the heck is secrets.py?](#what-the-heck-is-secretspy)
+   * [IPアドレスにpingを送信 (ESP32-S2)](#IPアドレスにpingを送信-esp32-s2)
+   * [JSONファイルを取得 (ESP32-S2)](#JSONファイルを取得-esp32-s2)
+   * [secrets.pyってなに？](#secrets.pyってなに？)
 * [I2C](#i2c)
    * [Scan I2C bus for devices](#scan-i2c-bus-for-devices)
 * [Board Info](#board-info)
@@ -397,9 +397,9 @@ while True:
 他のRP2040搭載ボード（QTPy RP2040等）でも機能する
 
   ```py
-  # Copy this as 'boot.py' in your Pico's CIRCUITPY driveに
+  # このコードをboot.pyとしてRaspberry Pi PicoのCIRCUITPY driveに保存しておく
   # from https://gist.github.com/Neradoc/8056725be1c209475fd09ffc37c9fad4
-  # Useful in case Pico locks up (which it's done a few times on me)
+  # Picoがロックアップしてしまったときに便利
   import board
   import time
   from digitalio import DigitalInOut,Pull
@@ -438,7 +438,7 @@ for network in networks:
   print("ssid:",network.ssid, "rssi:",network.rssi)
 ```
 
-### Ping an IP address (ESP32-S2)
+### IPアドレスにpingを送信 (ESP32-S2)
 ```py
 import time
 import wifi
@@ -454,7 +454,7 @@ while True:
     time.sleep(1)
 ```
 
-### Fetch a JSON file (ESP32-S2)
+### JSONファイルを取得 (ESP32-S2)
 ```py
 import time
 import wifi
@@ -473,7 +473,7 @@ while True:
     time.sleep(5)
 ```
 
-### What the heck is `secrets.py`?
+### `secrets.py`ってなに？
 It's a config file that lives next to your `code.py` and is used
 (invisibly) by many Adafruit WiFi libraries.
 You can use it too (as in the examples above) without those libraries
