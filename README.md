@@ -1,5 +1,8 @@
-todbotさんによるCircuitPythonのトリック集です。大変有用な内容なので、レポジトリをfolkさせていただき、日本語化しました。
+todbotさんによるCircuitPythonのトリック集です。大変有用な内容なので、レポジトリをfolkさせていただき、日本
+語化しました。
+
 元のrepositoryはこちら
+https://github.com/todbot/circuitpython-tricks
 
 # CircuitPythonのトリック集
 
