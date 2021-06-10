@@ -20,7 +20,7 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
    * [DACピンにアナログ値を出力](#DACピンにアナログ値を出力)
    * [PWMピンにアナログ値を出力](#PWMピンにアナログ値を出力)
    * [Neopixelを制御](#Neopixelを制御)
-* [Neopixel(WS2812B) / Dotstar()](#neopixels--dotstars)
+* [Neopixel(WS2812B) / Dotstar(APA102)](#NeopixelとDotstar)
    * [Moving rainbow on built-in board.NEOPIXEL](#moving-rainbow-on-built-in-boardneopixel)
    * [Make moving rainbow gradient across LED strip](#make-moving-rainbow-gradient-across-led-strip)
    * [Fade all LEDs by amount for chase effects](#fade-all-leds-by-amount-for-chase-effects)
@@ -177,7 +177,7 @@ Different boards have DAC on different pins
 
   ```
 
-## Neopixels / Dotstars
+## NeopixelとDotstar
 
 ### Moving rainbow on built-in `board.NEOPIXEL`
 
