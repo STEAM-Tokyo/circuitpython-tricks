@@ -62,9 +62,9 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
    * [コアモジュール以外のどんなライブラリがimportされているかを表示](#コアモジュール以外のどんなライブラリがimportされているかを表示)
    * [グローバル変数の一覧を表示](#グローバル変数の一覧を表示)
 * [ホスト側のタスク](#ホスト側のタスク)
-   * [Installing CircuitPython libraries](#installing-circuitpython-libraries)
-      * [Installing libraries with circup](#installing-libraries-with-circup)
-      * [Copying libraries by hand with cp](#copying-libraries-by-hand-with-cp)
+   * [CircuitPythonのライブラリをインストールする](#CircuitPythonのライブラリをインストールする)
+      * [circupで始まる名前のライブラリをインストールする](#circupで始まる名前のライブラリをインストールする)
+      * [cpコマンドでライブラリをコピーする](#cpコマンドでライブラリをコピーする)
 
 ## 入力
 
@@ -152,7 +152,7 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
   ```
 
 ### DACピンにアナログ値を出力
-Different boards have DAC on different pins
+ボードによってDACピンが異なります。
   ```py
   import board
   import analogio
@@ -628,11 +628,11 @@ if 'c' in my_globals:
 
 ## ホスト側のタスク
 
-### Installing CircuitPython libraries
+### CircuitPythonのライブラリをインストールする
 
-The below examples are for MacOS / Linux.  Similar commands are used for Windows
+以下はMacOS / Linuxの例です。  Windowsでも類似のコマンドを使用します。
 
-#### Installing libraries with `circup` 
+#### `circup`で始まる名前のライブラリをインストールする
 
 `circup` can be used to easily install and update modules
 
@@ -658,7 +658,7 @@ $ pip3 install --upgrade circup
 ```
 
 
-#### Copying libraries by hand with `cp`
+#### `cp`コマンドでライブラリをコピーする
 
 To install libraries by hand from the
 [CircuitPython Library Bundle](https://circuitpython.org/libraries)
