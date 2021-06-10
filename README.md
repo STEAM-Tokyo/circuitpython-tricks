@@ -1,3 +1,5 @@
+todbotさんによるCircuitPythonのトリック集です。
+元のrepositoryはこちら
 
 # circuitpython-tricks
 
