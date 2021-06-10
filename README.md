@@ -1,11 +1,11 @@
-todbotさんによるCircuitPythonのトリック集です。
+todbotさんによるCircuitPythonのトリック集です。大変有用な内容なので、レポジトリをfolkさせていただき、日本語化しました。
 元のrepositoryはこちら
 
-# circuitpython-tricks
+# CircuitPythonのトリック集
 
-A small list of tips & tricks I find myself needing when working with CircuitPython
+todbotさんがCircuitPythonのプログラミングの中で見つけたコツとトリックを集めたものです。
 
-## Table of Contents
+## 目次
 * [Inputs](#inputs)
    * [Read an digital input as a Button](#read-an-digital-input-as-a-button)
    * [Read a Potentiometer](#read-a-potentiometer)
