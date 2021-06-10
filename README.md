@@ -13,10 +13,10 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
    * [ポテンショメータを読み取る](#ポテンショメータを読み取る)
    * [静電容量タッチピンを読み取る](#静電容量タッチピンを読み取る)
    * [ロータリーエンコーダを読み取る](#ロータリーエンコーダを読み取る)
-   * [Debounce a pin / button](#debounce-a-pin--button)
-   * [Set up and debounce a list of pins](#set-up-and-debounce-a-list-of-pins)
-* [Outputs](#outputs)
-   * [Output HIGH / LOW on a pin (like an LED)](#output-high--low-on-a-pin-like-an-led)
+   * [ピンやボタンのデバウンス](#ピンやボタンのデバウンス)
+   * [複数のピンをリスト化してデバウンス](#複数のピンをリスト化してデバウンス)
+* [出力](#出力)
+   * [ピンにHIGH/LOWを出力 (例: LEDのオン・オフ)](#ピンにHIGH/LOWを出力 (例: LEDのオン・オフ))
    * [Output Analog value on a DAC pin](#output-analog-value-on-a-dac-pin)
    * [Output a "Analog" value on a PWM pin](#output-a-analog-value-on-a-pwm-pin)
    * [Control Neopixel / WS2812 LEDs](#control-neopixel--ws2812-leds)
@@ -104,7 +104,7 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
   print(encoder.position)  # starts at zero, goes neg or pos
   ```
 
-### Debounce a pin / button 
+### ピンやボタンのデバウンス 
   ```py
   import board
   from digitalio import DigitalInOut, Pull
@@ -120,7 +120,7 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
       print("release!")
   ```
 
-### Set up and debounce a list of pins
+### 複数のピンをリスト化してデバウンス
   ```py
   import board
   from digitalio import DigitalInOut, Pull
@@ -140,9 +140,9 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
         print("button",i,"released!")
   ```
         
-## Outputs
+## 出力
 
-### Output HIGH / LOW on a pin (like an LED)
+### ピンにHIGH/LOWを出力 (例: LEDのオン・オフ)
   ```py
   import board
   import digitalio
