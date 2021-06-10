@@ -21,7 +21,7 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
    * [PWMピンにアナログ値を出力](#PWMピンにアナログ値を出力)
    * [Neopixelを制御](#Neopixelを制御)
 * [Neopixel(WS2812B) / Dotstar(APA102)](#NeopixelとDotstar)
-   * [Moving rainbow on built-in board.NEOPIXEL](#moving-rainbow-on-built-in-boardneopixel)
+   * [マイコンに搭載されているNeoPixelを虹色に変化させる](#マイコンに搭載されているNeoPixelを虹色に変化させる)
    * [Make moving rainbow gradient across LED strip](#make-moving-rainbow-gradient-across-led-strip)
    * [Fade all LEDs by amount for chase effects](#fade-all-leds-by-amount-for-chase-effects)
 * [USB](#usb)
@@ -179,7 +179,7 @@ Different boards have DAC on different pins
 
 ## NeopixelとDotstar
 
-### Moving rainbow on built-in `board.NEOPIXEL`
+### マイコンに搭載されている`board.NEOPIXEL`を虹色に変化させる
 
 Uses built-in `colorwheel()` function part of `_pixelbuf` or `adafruit_pypixelbuf`:
 This function returns an `(R,G,B)` tuple given a single 0-255 hue. Here's one way to use
