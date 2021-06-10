@@ -41,9 +41,9 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
    * [値のマッピング](#値のマッピング)
    * [時間の計測](#時間の計測)
    * [Ctrl-Cを押してもコードが停止しないようにする](#preventing-ctrl-c-from-stopping-the-program)
-   * [Raspberry Pi Picoをセーフモードで起動できるようにする](#Raspberry Pi Picoをセーフモードで起動できるようにする)
-* [Networking](#networking)
-   * [Scan for WiFi Networks, sorted by signal strength (ESP32-S2)](#scan-for-wifi-networks-sorted-by-signal-strength-esp32-s2)
+   * [Raspberry Pi Picoをセーフモードで起動できるようにする](#Raspberry-Pi-Picoをセーフモードで起動できるようにする)
+* [ネットワーク](#ネットワーク)
+   * [WiFiをスキャンして信号強度順にSSIDを表示 (ESP32-S2)](#WiFiをスキャンして信号強度順にSSIDを表示-ESP32-S2)
    * [Ping an IP address (ESP32-S2)](#ping-an-ip-address-esp32-s2)
    * [Fetch a JSON file (ESP32-S2)](#fetch-a-json-file-esp32-s2)
    * [What the heck is secrets.py?](#what-the-heck-is-secretspy)
@@ -374,7 +374,7 @@ while True:
     print("Nice try, human! Not quitting.")
 ```
 
-Ctrl-Cを押して、優雅にシャットダウンすることもできる
+Ctrl-Cを押して、優雅に(LEDを消して、終了メッセージを表示してから)シャットダウンすることもできる
 
 ```py
 import time, random
@@ -424,9 +424,9 @@ while True:
     
   ```
 
-## Networking
+## ネットワーク
 
-### Scan for WiFi Networks, sorted by signal strength (ESP32-S2)
+### WiFiをスキャンして信号強度順にSSIDを表示 (ESP32-S2)
 
 ```py
 networks = []
