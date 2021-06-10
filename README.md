@@ -55,13 +55,13 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
    * [ボード名の表示](#ボード名の表示)
    * [ひとつのcode.pyで複数のボードに対応する](#ひとつのcodepyで複数のボードに対応する)
 * [Hacks](#hacks)
-   * [Using the REPL](#using-the-repl)
-      * [Display built-in modules / libraries](#display-built-in-modules--libraries)
-      * [Use REPL fast with copy-paste multi-one-liners](#use-repl-fast-with-copy-paste-multi-one-liners)
-* [Python info](#python-info)
-   * [Display which (not built-in) libraries have been imported](#display-which-not-built-in-libraries-have-been-imported)
-   * [List names of all global variables](#list-names-of-all-global-variables)
-* [Host-side tasks](#host-side-tasks)
+   * [REPLを使う](#REPLを使う)
+      * [コアモジュールとライブラリの一覧を表示](#コアモジュールとライブラリの一覧を表示)
+      * [ワンライナー](#ワンライナー)
+* [Python情報](#python情報)
+   * [コアモジュール以外のどんなライブラリがimportされているかを表示](#コアモジュール以外のどんなライブラリがimportされているかを表示)
+   * [グローバル変数の一覧を表示](#グローバル変数の一覧を表示)
+* [ホスト側のタスク](#ホスト側のタスク)
    * [Installing CircuitPython libraries](#installing-circuitpython-libraries)
       * [Installing libraries with circup](#installing-libraries-with-circup)
       * [Copying libraries by hand with cp](#copying-libraries-by-hand-with-cp)
@@ -560,9 +560,9 @@ for pin in dir(microcontroller.pin):
 
 ## Hacks
 
-### Using the REPL
+### REPLを使う
 
-#### Display built-in modules / libraries
+#### コアモジュールとライブラリの一覧を表示
   ```
   Adafruit CircuitPython 6.2.0-beta.2 on 2021-02-11; Adafruit Trinket M0 with samd21e18
   >>> help("modules")
@@ -576,31 +576,31 @@ for pin in dir(microcontroller.pin):
   Plus any modules on the filesystem
   ```
 
-#### Use REPL fast with copy-paste multi-one-liners
+#### ワンライナー
 
-(yes, semicolons are legal in Python)
+(Pythonではセミコロンで命令をつなぐことができる)
 
 ```py
-# load most common libraries
+# よく使われるライブラリをまとめてimportする
 import time; import board; from digitalio import DigitalInOut,Pull; import analogio; import touchio
 
-# print out board pins and objects (like 'I2C' and 'display')
+# ボードのピンとオブジェクトを表示 (例: 'I2C'、'display'など)
 import board; dir(board)
 
-# print out microcontroller pins (chip pins, not the same as board pins)
+# チップのピンを表示　(上記のimport boardで表示したピンとは違う)
 import microcontroller; dir(microcontroller.pin)
 
-# release configured / built-in display
+# 内蔵ディスプレイのリリース
 import displayio; displayio.release_displays()
 
-# make all neopixels purple
+# ボードに搭載されたNeoPixelを紫色にする
 import board; import neopixel; leds = neopixel.NeoPixel(board.D3, 8, brightness=0.2); leds.fill(0xff00ff)
 
 ```
 
-## Python info
+## Python情報
 
-### Display which (not built-in) libraries have been imported 
+### コアモジュール以外のどんなライブラリがimportされているかを表示 
 ```py
 import sys
 print(sys.modules.keys())
@@ -612,7 +612,7 @@ print(sys.modules.keys())
 prints "dict_keys(['neopixel', 'adafruit_dotstar'])"
 ```
 
-### List names of all global variables
+### グローバル変数の一覧を表示
 ```py
 a = 123
 b = 'hello there'
@@ -626,7 +626,7 @@ if 'c' in my_globals:
 ```
 
 
-## Host-side tasks
+## ホスト側のタスク
 
 ### Installing CircuitPython libraries
 
