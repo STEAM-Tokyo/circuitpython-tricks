@@ -46,14 +46,14 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
    * [WiFiをスキャンして信号強度順にSSIDを表示 (ESP32-S2)](#WiFiをスキャンして信号強度順にSSIDを表示-ESP32-S2)
    * [IPアドレスにpingを送信 (ESP32-S2)](#IPアドレスにpingを送信-esp32-s2)
    * [JSONファイルを取得 (ESP32-S2)](#JSONファイルを取得-esp32-s2)
-   * [secrets.pyってなに？](#secrets.pyってなに？)
+   * [secrets.pyってなに？](#secretspyってなに？)
 * [I2C](#i2c)
-   * [Scan I2C bus for devices](#scan-i2c-bus-for-devices)
-* [Board Info](#board-info)
-   * [Display amount of free RAM](#display-amount-of-free-ram)
-   * [Show microcontroller.pin to board mappings](#show-microcontrollerpin-to-board-mappings)
-   * [Determine which board you're o時間の計測n](#determine-which-board-youre-on)
-   * [Support multiple boards with one code.py](#support-multiple-boards-with-one-codepy)
+   * [I2Cバスをスキャンする](#I2Cバスをスキャンする)
+* [ボードの情報](#ボードの情報)
+   * [空きメモリの容量を表示する](#空きメモリの容量を表示する)
+   * [microcontroller.pinとboardのマッピング状況を表示](#microcontrollerpinとboardのマッピング状況を表示)
+   * [ボード名の表示](#ボード名の表示)
+   * [ひとつのcode.pyで複数のボードに対応する](#ひとつのcodepyで複数のボードに対応する)
 * [Hacks](#hacks)
    * [Using the REPL](#using-the-repl)
       * [Display built-in modules / libraries](#display-built-in-modules--libraries)
@@ -492,8 +492,8 @@ print("your WiFi password is:", secrets['password'])
 
 ## I2C
 
-### Scan I2C bus for devices
-from: https://learn.adafruit.com/circuitpython-essentials/circuitpython-i2c#find-your-sensor-2985153-11
+### I2Cバスをスキャンする
+参照: https://learn.adafruit.com/circuitpython-essentials/circuitpython-i2c#find-your-sensor-2985153-11
 
 ```py
 import board
@@ -505,9 +505,9 @@ i2c.unlock()
 ```
 
 
-## Board Info
+## ボードの情報
 
-### Display amount of free RAM
+### 空きメモリの容量を表示する
 
 from: https://learn.adafruit.com/welcome-to-circuitpython/frequently-asked-questions
 ```py
@@ -515,8 +515,8 @@ import gc
 print( gc.mem_free() )
 ```
 
-### Show microcontroller.pin to board mappings
-from https://gist.github.com/anecdata/1c345cb2d137776d76b97a5d5678dc97
+### microcontroller.pinとboardのマッピング状況を表示
+参照: https://gist.github.com/anecdata/1c345cb2d137776d76b97a5d5678dc97
 ```py
 
 import microcontroller
@@ -530,14 +530,14 @@ for pin in dir(microcontroller.pin):
                 print("".join(("", "board.", alias)), end=" ")
     print()
 ```
-### Determine which board you're on
+### ボード名の表示
   ```py
   import os
   print(os.uname().machine)
   'Adafruit ItsyBitsy M4 Express with samd51g19'
   ```
 
-### Support multiple boards with one `code.py`
+### ひとつの`code.py`で複数のボードに対応する
   ```py
   import os
   board_type = os.uname().machine
