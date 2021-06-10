@@ -22,7 +22,7 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
    * [Neopixelを制御](#Neopixelを制御)
 * [Neopixel(WS2812B) / Dotstar(APA102)](#NeopixelとDotstar)
    * [マイコンに搭載されているNeoPixelを虹色に変化させる](#マイコンに搭載されているNeoPixelを虹色に変化させる)
-   * [Make moving rainbow gradient across LED strip](#make-moving-rainbow-gradient-across-led-strip)
+   * [LEDテープに虹のグラデーションを表示](#LEDテープに虹のグラデーションを表示)
    * [Fade all LEDs by amount for chase effects](#fade-all-leds-by-amount-for-chase-effects)
 * [USB](#usb)
    * [Detect if USB is connected or not](#detect-if-usb-is-connected-or-not)
@@ -195,9 +195,9 @@ while True:
   time.sleep(0.05)
 ```
 
-### Make moving rainbow gradient across LED strip
+### LEDテープに虹のグラデーションを表示
 
-See [demo of it in this tweet](https://twitter.com/todbot/status/1397992493833097218).
+デモは [こちら](https://twitter.com/todbot/status/1397992493833097218).
 
 ```py
 import time, random
