@@ -36,12 +36,12 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
 * [計算タスク](#計算タスク)
    * [テキストをフォーマットする](#テキストをフォーマットする)
    * [f文字列でテキストをフォーマットする](#f文字列でテキストをフォーマットする)
-   * [Make and Use a config file](#make-and-use-a-config-file)
-* [More Esoteric Tasks](#more-esoteric-tasks)
-   * [Map an input range to an output range](#map-an-input-range-to-an-output-range)
-   * [Time how long something takes](#time-how-long-something-takes)
-   * [Preventing Ctrl-C from stopping the program](#preventing-ctrl-c-from-stopping-the-program)
-   * [Raspberry Pi Pico boot.py Protection](#raspberry-pi-pico-bootpy-protection)
+   * [configファイルを利用する](#configファイルを利用する)
+* [より複雑なタスク](#より複雑なタスク)
+   * [値のマッピング](#値のマッピング)
+   * [時間の計測](#時間の計測)
+   * [Ctrl-Cを押してもコードが停止しないようにする](#preventing-ctrl-c-from-stopping-the-program)
+   * [Raspberry Pi Picoをセーフモードで起動できるようにする](#Raspberry Pi Picoをセーフモードで起動できるようにする)
 * [Networking](#networking)
    * [Scan for WiFi Networks, sorted by signal strength (ESP32-S2)](#scan-for-wifi-networks-sorted-by-signal-strength-esp32-s2)
    * [Ping an IP address (ESP32-S2)](#ping-an-ip-address-esp32-s2)
@@ -52,7 +52,7 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
 * [Board Info](#board-info)
    * [Display amount of free RAM](#display-amount-of-free-ram)
    * [Show microcontroller.pin to board mappings](#show-microcontrollerpin-to-board-mappings)
-   * [Determine which board you're on](#determine-which-board-youre-on)
+   * [Determine which board you're o時間の計測n](#determine-which-board-youre-on)
    * [Support multiple boards with one code.py](#support-multiple-boards-with-one-codepy)
 * [Hacks](#hacks)
    * [Using the REPL](#using-the-repl)
@@ -325,7 +325,7 @@ while True:
 ```
 
 
-### Make and Use a config file
+### configファイルを利用する
   ```py
   # my_config.py
   config = {
@@ -340,9 +340,9 @@ while True:
   ```
 
 
-## More Esoteric Tasks
+## より複雑なタスク
 
-### Map an input range to an output range
+### 値のマッピング
   ```py
   # simple range mapper, like Arduino map()
   def map_range(s, a, b):
@@ -352,7 +352,7 @@ while True:
   out = map_range( in, (0,1023), (0.0,1.0) )
   ```
 
-### Time how long something takes
+### 時間の計測
   ```py
   import time
   start_time = time.monotonic() # fraction seconds uptime
@@ -361,10 +361,9 @@ while True:
   print("do_something took %f seconds" % elapsed_time)
   ```
 
-### Preventing Ctrl-C from stopping the program
+### Ctrl-Cを押してもコードが停止しないようにする
 
-Put a `try`/`except KeyboardInterrupt` to catch the Ctrl-C
-on the inside of your main loop.
+メインループ内に `try`/`except KeyboardInterrupt` を記述してCtrl-Cを押したことを検出する
 
 ```py
 while True:
@@ -375,7 +374,7 @@ while True:
     print("Nice try, human! Not quitting.")
 ```
 
-Also useful for graceful shutdown (turning off neopixels, say) on Ctrl-C.
+Ctrl-Cを押して、優雅にシャットダウンすることもできる
 
 ```py
 import time, random
@@ -393,12 +392,12 @@ while True:
 ```
 
 
-### Raspberry Pi Pico boot.py Protection
+### Raspberry Pi Picoをセーフモードで起動できるようにする
 
-Also works on other RP2040-based boards like QTPy RP2040
+他のRP2040搭載ボード（QTPy RP2040等）でも機能する
 
   ```py
-  # Copy this as 'boot.py' in your Pico's CIRCUITPY drive
+  # Copy this as 'boot.py' in your Pico's CIRCUITPY driveに
   # from https://gist.github.com/Neradoc/8056725be1c209475fd09ffc37c9fad4
   # Useful in case Pico locks up (which it's done a few times on me)
   import board
