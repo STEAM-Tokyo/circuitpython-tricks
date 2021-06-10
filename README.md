@@ -1,7 +1,7 @@
 todbotさんによるCircuitPythonのトリック集です。大変有用な内容なので、レポジトリをfolkさせていただき、日本
 語化しました。
 
-元のrepositoryはこちら
+元のレポジトリはこちら
 https://github.com/todbot/circuitpython-tricks
 
 # CircuitPythonのトリック集
@@ -9,7 +9,7 @@ https://github.com/todbot/circuitpython-tricks
 todbotさんがCircuitPythonのプログラミングの中で見つけたコツとトリックを集めたものです。
 
 ## 目次
-* [Inputs](#inputs)
+* [入力](#入力)
    * [Read an digital input as a Button](#read-an-digital-input-as-a-button)
    * [Read a Potentiometer](#read-a-potentiometer)
    * [Read a Touch Pin / Capsense](#read-a-touch-pin--capsense)
@@ -67,7 +67,7 @@ todbotさんがCircuitPythonのプログラミングの中で見つけたコツ�
       * [Installing libraries with circup](#installing-libraries-with-circup)
       * [Copying libraries by hand with cp](#copying-libraries-by-hand-with-cp)
 
-## Inputs
+## 入力
 
 ### Read an digital input as a Button
   ```py
