@@ -70,7 +70,7 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
 
 ### ボタンのデジタル入力を読み取る
 
-  ```py
+  ```python
   import board
   from digitalio import DigitalInOut, Pull
   button = DigitalInOut(board.D3) # デフォルトでは入力
