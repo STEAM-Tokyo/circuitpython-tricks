@@ -168,7 +168,7 @@ Different boards have DAC on different pins
   out1.duty_cycle = 32768  # mid-point 0-65535 = 50 % duty-cycle
   ```
 
-### Neopixel(WS2812) LEDを制御
+### Neopixelを制御
   ```py
   import neopixel
   led = neopixel.NeoPixel(board.NEOPIXEL, 1, brightness=0.2)
