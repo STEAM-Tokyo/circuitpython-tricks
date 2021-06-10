@@ -17,9 +17,9 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
    * [複数のピンをリスト化してデバウンス](#複数のピンをリスト化してデバウンス)
 * [出力](#出力)
    * [ピンにHIGH/LOWを出力 (例: LEDのオン・オフ)](#ピンにHIGHまたはLOWを出力)
-   * [Output Analog value on a DAC pin](#output-analog-value-on-a-dac-pin)
-   * [Output a "Analog" value on a PWM pin](#output-a-analog-value-on-a-pwm-pin)
-   * [Control Neopixel / WS2812 LEDs](#control-neopixel--ws2812-leds)
+   * [DACピンにアナログ値を出力](#DACピンにアナログ値を出力)
+   * [PWMピンにアナログ値を出力](#PWMピンにアナログ値を出力)
+   * [Neopixel(WS2812) LEDを制御](#Neopixel(WS2812) LEDを制御)
 * [Neopixels / Dotstars](#neopixels--dotstars)
    * [Moving rainbow on built-in board.NEOPIXEL](#moving-rainbow-on-built-in-boardneopixel)
    * [Make moving rainbow gradient across LED strip](#make-moving-rainbow-gradient-across-led-strip)
@@ -151,7 +151,7 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
   ledpin.value = True
   ```
 
-### Output Analog value on a DAC pin
+### DACピンにアナログ値を出力
 Different boards have DAC on different pins
   ```py
   import board
@@ -160,7 +160,7 @@ Different boards have DAC on different pins
   dac.value = 32768   # mid-point of 0-65535
   ```
 
-### Output a "Analog" value on a PWM pin
+### PWMピンにアナログ値を出力
   ```py
   import board
   import pwmio
@@ -168,7 +168,7 @@ Different boards have DAC on different pins
   out1.duty_cycle = 32768  # mid-point 0-65535 = 50 % duty-cycle
   ```
 
-### Control Neopixel / WS2812 LEDs
+### Neopixel(WS2812) LEDを制御
   ```py
   import neopixel
   led = neopixel.NeoPixel(board.NEOPIXEL, 1, brightness=0.2)
