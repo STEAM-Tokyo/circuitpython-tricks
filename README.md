@@ -30,7 +30,7 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
    * [コードからUF2 bootloaderをリセット](#コードからUF2-bootloaderをリセット)
 * [USBシリアル](#usbシリアル)
    * [USBシリアルに表示](#USBシリアルに表示)
-   * [USBシリアルから入力を受け付ける（ブロッキング）](#USBシリアルから入力を受け付ける-ブロッキング)
+   * [USBシリアルから入力を受け付ける（ブロッキング）](#USBシリアルから入力を受け付けるブロッキング)
    * [Read user input from USB Serial, non-blocking (mostly)](#read-user-input-from-usb-serial-non-blocking-mostly)
    * [Read keys from USB Serial](#read-keys-from-usb-serial)
 * [Computery Tasks](#computery-tasks)
