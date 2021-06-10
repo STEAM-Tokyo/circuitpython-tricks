@@ -10,9 +10,9 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
 ## 目次
 * [入力](#入力)
    * [ボタンのデジタル入力を読み取る](#ボタンのデジタル入力を読み取る)
-   * [Read a Potentiometer](#read-a-potentiometer)
-   * [Read a Touch Pin / Capsense](#read-a-touch-pin--capsense)
-   * [Read a Rotary Encoder](#read-a-rotary-encoder)
+   * [ポテンショメータを読み取る](#ポテンショメータを読み取る)
+   * [静電容量タッチピンを読み取る](#静電容量タッチピンを読み取る)
+   * [ロータリーエンコーダを読み取る](#ロータリーエンコーダを読み取る)
    * [Debounce a pin / button](#debounce-a-pin--button)
    * [Set up and debounce a list of pins](#set-up-and-debounce-a-list-of-pins)
 * [Outputs](#outputs)
@@ -77,7 +77,7 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
   print(button.value)  # False == pressed
   ```
 
-### Read a Potentiometer 
+### ポテンショメータを読み取る 
   ```py
   import board
   import analogio
@@ -86,7 +86,7 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
   pos = potknob.value // 256  # make 0-255 range
   ```
 
-### Read a Touch Pin / Capsense
+### 静電容量タッチピンを読み取る
   ```py
   import touchio
   import board
@@ -96,7 +96,7 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
     print("touched!")
   ```
 
-### Read a Rotary Encoder
+### ロータリーエンコーダを読み取る
   ```py
   import board
   import rotaryio
