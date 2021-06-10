@@ -31,11 +31,11 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
 * [USBシリアル](#usbシリアル)
    * [USBシリアルに表示](#USBシリアルに表示)
    * [USBシリアルから入力を受け付ける（ブロッキング）](#USBシリアルから入力を受け付けるブロッキング)
-   * [Read user input from USB Serial, non-blocking (mostly)](#read-user-input-from-usb-serial-non-blocking-mostly)
-   * [Read keys from USB Serial](#read-keys-from-usb-serial)
-* [Computery Tasks](#computery-tasks)
-   * [Formatting strings](#formatting-strings)
-   * [Formatting strings with f-strings](#formatting-strings-with-f-strings)
+   * [USBシリアルから入力を受け付ける（ほぼノンブロッキング）](#USBシリアルから入力を受け付けるほぼノンブロッキング)
+   * [USBシリアルからキーを読み取る](#USBシリアルからキーを読み取る)
+* [計算タスク](#計算タスク)
+   * [テキストをフォーマットする](#テキストをフォーマットする)
+   * [f文字列でテキストをフォーマットする](#f文字列でテキストをフォーマットする)
    * [Make and Use a config file](#make-and-use-a-config-file)
 * [More Esoteric Tasks](#more-esoteric-tasks)
    * [Map an input range to an output range](#map-an-input-range-to-an-output-range)
@@ -280,7 +280,7 @@ while True:
     print("You entered: ", my_str)
   ```
 
-### Read user input from USB Serial, non-blocking (mostly)
+### USBシリアルから入力を受け付ける（ほぼノンブロッキング）
   ```py
   import time
   import supervisor
@@ -295,16 +295,16 @@ while True:
       print(int(last_time),"waiting...")
   ```
 
-### Read keys from USB Serial
+### USBシリアルからキーを読み取る
   ```py
   [tbd]
 
   ```
 
 
-## Computery Tasks
+## 計算タスク
 
-### Formatting strings
+### テキストをフォーマットする
   ```py
   name = "John"
   fav_color = 0x003366
@@ -313,8 +313,8 @@ while True:
   'name:John color:ff3366 thermometer:98.6'
   ```
 
-### Formatting strings with f-strings
-(doesn't work on 'small' CircuitPythons like QTPy M0)
+### f文字列でテキストをフォーマットする
+（QTPy M0のような小さなCircuitPythonでは機能しない）
 
 ```py
   name = "John"
