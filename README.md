@@ -1,5 +1,4 @@
-todbotさんによるCircuitPythonのトリック集です。大変有用な内容なので、レポジトリをfolkさせていただき、日本
-語化しました。
+todbotさんによるCircuitPythonのトリック集です。大変有用な内容なので、レポジトリをfolkさせていただき、日本語化しました。
 
 元のレポジトリはこちら
 https://github.com/todbot/circuitpython-tricks
@@ -10,7 +9,7 @@ todbotさんがCircuitPythonのプログラミングの中で見つけたコツ�
 
 ## 目次
 * [入力](#入力)
-   * [Read an digital input as a Button](#read-an-digital-input-as-a-button)
+   * [ボタンのデジタル入力を読み取る](#ボタンのデジタル入力を読み取る)
    * [Read a Potentiometer](#read-a-potentiometer)
    * [Read a Touch Pin / Capsense](#read-a-touch-pin--capsense)
    * [Read a Rotary Encoder](#read-a-rotary-encoder)
@@ -69,7 +68,7 @@ todbotさんがCircuitPythonのプログラミングの中で見つけたコツ�
 
 ## 入力
 
-### Read an digital input as a Button
+### ボタンのデジタル入力を読み取る
   ```py
   import board
   from digitalio import DigitalInOut, Pull
