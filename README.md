@@ -28,9 +28,9 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
    * [USBが接続されているかを検出](#USBが接続されているかを検出)
    * [CIRCUITPYのディスクサイズと空き容量を取得](#CIRCUITPYのディスクサイズと空き容量を取得)
    * [コードからUF2 bootloaderをリセット](#コードからUF2-bootloaderをリセット)
-* [USB Serial](#usb-serial)
-   * [Print to USB Serial](#print-to-usb-serial)
-   * [Read user input from USB Serial, blocking](#read-user-input-from-usb-serial-blocking)
+* [USBシリアル](#usbシリアル)
+   * [USBシリアルに表示](#USBシリアルに表示)
+   * [USBシリアルから入力を受け付ける（ブロッキング）](#USBシリアルから入力を受け付ける（ブロッキング）)
    * [Read user input from USB Serial, non-blocking (mostly)](#read-user-input-from-usb-serial-non-blocking-mostly)
    * [Read keys from USB Serial](#read-keys-from-usb-serial)
 * [Computery Tasks](#computery-tasks)
@@ -264,15 +264,15 @@ while True:
   microcontroller.reset()
   ```
 
-## USB Serial
+## USBシリアル
 
-### Print to USB Serial
+### USBシリアルに表示
   ```py
   print("hello there")  # prints a newline
   print("waiting...", end='')   # does not print newline
   ```
 
-### Read user input from USB Serial, blocking
+### USBシリアルから入力を受け付ける（ブロッキング）
   ```py
   while True:
     print("Type something: ", end='')
