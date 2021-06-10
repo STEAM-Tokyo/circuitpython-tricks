@@ -70,13 +70,13 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
 
 ### ボタンのデジタル入力を読み取る
 
-  ```python
+  ~~~python
   import board
   from digitalio import DigitalInOut, Pull
   button = DigitalInOut(board.D3) # デフォルトでは入力
   button.pull = Pull.UP # 内部のプルアップ抵抗を有効化する
   print(button.value)  # False == ボタンが押された
-  ```
+  ~~~
 
 ### ポテンショメータを読み取る 
   ```py
