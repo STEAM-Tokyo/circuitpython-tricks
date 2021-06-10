@@ -16,7 +16,7 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
    * [ピンやボタンのデバウンス](#ピンやボタンのデバウンス)
    * [複数のピンをリスト化してデバウンス](#複数のピンをリスト化してデバウンス)
 * [出力](#出力)
-   * [ピンにHIGH/LOWを出力 (例: LEDのオン・オフ)](#ピンにHIGH/LOWを出力 (例: LEDのオン・オフ))
+   * [ピンにHIGH/LOWを出力 (例: LEDのオン・オフ)](#ピンにHIGH/LOWを出力)
    * [Output Analog value on a DAC pin](#output-analog-value-on-a-dac-pin)
    * [Output a "Analog" value on a PWM pin](#output-a-analog-value-on-a-pwm-pin)
    * [Control Neopixel / WS2812 LEDs](#control-neopixel--ws2812-leds)
@@ -142,7 +142,7 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
         
 ## 出力
 
-### ピンにHIGH/LOWを出力 (例: LEDのオン・オフ)
+### ピンにHIGH/LOWを出力
   ```py
   import board
   import digitalio
