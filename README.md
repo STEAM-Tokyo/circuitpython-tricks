@@ -23,11 +23,11 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
 * [Neopixel(WS2812B) / Dotstar(APA102)](#NeopixelとDotstar)
    * [マイコンに搭載されているNeoPixelを虹色に変化させる](#マイコンに搭載されているNeoPixelを虹色に変化させる)
    * [LEDテープに虹のグラデーションを表示](#LEDテープに虹のグラデーションを表示)
-   * [Fade all LEDs by amount for chase effects](#fade-all-leds-by-amount-for-chase-effects)
+   * [LEDテープに流れ星のエフェクトを表示](#LEDテープに流れ星のエフェクトを表示)
 * [USB](#usb)
-   * [Detect if USB is connected or not](#detect-if-usb-is-connected-or-not)
-   * [Get CIRCUITPY disk size and free space](#get-circuitpy-disk-size-and-free-space)
-   * [Programmatically reset to UF2 bootloader](#programmatically-reset-to-uf2-bootloader)
+   * [USBが接続されているかを検出](#USBが接続されているかを検出)
+   * [CIRCUITPYのディスクサイズと空き容量を取得](#CIRCUITPYのディスクサイズと空き容量を取得)
+   * [コードからUF2 bootloaderをリセット](#コードからUF2 bootloaderをリセット)
 * [USB Serial](#usb-serial)
    * [Print to USB Serial](#print-to-usb-serial)
    * [Read user input from USB Serial, blocking](#read-user-input-from-usb-serial-blocking)
@@ -215,7 +215,7 @@ while True:
   time.sleep(0.05)
 ```
 
-### Fade all LEDs by amount for chase effects
+### LEDテープに流れ星のエフェクトを表示
 ```py
 import time, random
 import board, neopixel
@@ -235,7 +235,7 @@ while True:
 
 ## USB
 
-### Detect if USB is connected or not
+### USBが接続されているかを検出
   ```py
   def is_usb_connected():
     import storage
@@ -249,7 +249,7 @@ while True:
   print("USB:", is_usb)
   ```
 
-### Get CIRCUITPY disk size and free space
+### CIRCUITPYのディスクサイズと空き容量を取得
   ```py
   import os
   fs_stat = os.statvfs('/')
@@ -257,7 +257,7 @@ while True:
   print("Free space in MB", fs_stat[0] * fs_stat[3] / 1024 / 1024)
   ```
 
-### Programmatically reset to UF2 bootloader 
+### コードからUF2 bootloaderをリセット 
   ```py
   import micrcocontroller
   microcontroller.on_next_reset(microcontroller.RunMode.BOOTLOADER)
