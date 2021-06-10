@@ -181,12 +181,9 @@ Different boards have DAC on different pins
 
 ### マイコンに搭載されているNeoPixelを虹色に変化させる
 
-Uses built-in `colorwheel()` function part of `_pixelbuf` or `adafruit_pypixelbuf`:
-This function returns an `(R,G,B)` tuple given a single 0-255 hue. Here's one way to use
-it.  This will also work for `adafruit_dotstar` instead of `neopixel`.
 `_pixelbuf` または `adafruit_pypixelbuf` の一部である組み込みの `colorwheel()` 関数を使用します。
 この関数は、0～255の色相を指定して、`(R,G,B)`のタプルを返します。以下にその使い方を示します。
-これは  これは、`neopixel`の代わりに`adafruit_dotstar`でも動作します。
+これは、`neopixel`の代わりに`adafruit_dotstar`でも動作します。
 
 ```py
 import time
