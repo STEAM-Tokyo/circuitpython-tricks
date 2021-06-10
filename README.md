@@ -19,7 +19,7 @@ todbotさんがCircuitPythonのプログラミングの中で見つけられた�
    * [ピンにHIGH/LOWを出力 (例: LEDのオン・オフ)](#ピンにHIGHまたはLOWを出力)
    * [DACピンにアナログ値を出力](#DACピンにアナログ値を出力)
    * [PWMピンにアナログ値を出力](#PWMピンにアナログ値を出力)
-   * [Neopixel(WS2812) LEDを制御](#Neopixel(WS2812) LEDを制御)
+   * [Neopixelを制御](#Neopixelを制御)
 * [Neopixels / Dotstars](#neopixels--dotstars)
    * [Moving rainbow on built-in board.NEOPIXEL](#moving-rainbow-on-built-in-boardneopixel)
    * [Make moving rainbow gradient across LED strip](#make-moving-rainbow-gradient-across-led-strip)
